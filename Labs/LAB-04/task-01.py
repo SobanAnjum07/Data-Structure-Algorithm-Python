@@ -30,6 +30,7 @@ def print_matrix(data):
         print()
 
 if __name__ == "__main__":
+    # for the implementation of the recursive function
     columns = 3
     rows = 3
     mat = [[0 for i in range(columns)] for j in range(rows)]
