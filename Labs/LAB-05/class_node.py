@@ -23,6 +23,7 @@ def addFrontNode(lnkNodes, val):
 # printing the linked list
 def printLinkedNodes(lnkNodes):
     cn = lnkNodes
+    # while cn is not None:   (Is true also)
     while cn:
         print(cn.data, end=" ")
         cn = cn.next
@@ -67,20 +68,20 @@ def count_linked_nodes(lnkNodes):
 #       <-------------- recursive functions -------------->
 
 
-def recursive_add_back_node(lnkNodes, val):
+def recursive_add_front_node(lnkNodes, val):
     if lnkNodes == None:
         return Node(val)
     else:
-        lnkNodes.next = recursive_add_back_node(lnkNodes.next, val)
+        lnkNodes.next = recursive_add_front_node(lnkNodes.next, val)
         return lnkNodes
     
-def recursive_add_front_node(lnkNodes, val):
+def recursive_add_back_node(lnkNodes, val):
     if lnkNodes == None:
         return Node(val)
     else:
         tmp = Node(val)
         tmp.next = lnkNodes
-        return tmp    
+        return tmp   
 
 def recursive_print_linked_nodes(lnkNodes):
     if lnkNodes == None:
@@ -128,5 +129,3 @@ def sortLinkedNodes(lnkNodes):
             cn2 = cn2.next
         cn = cn.next
     return lnkNodes
-
-# <------------------ implement in main function ------------------>
