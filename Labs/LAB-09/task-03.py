@@ -51,9 +51,6 @@ class Simulator:
     def turnaround_time(self):
         return self.exe_end_time - Simulator.time
 
-    # def 
-
-  
 
 
 class Data:
@@ -81,6 +78,5 @@ if __name__ == '__main__':
         
         
     print(a.reverse_sort_2D_array())
-    # for i in a:
-    #     print(i)
+ 
     
