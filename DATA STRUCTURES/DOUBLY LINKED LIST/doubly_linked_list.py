@@ -16,8 +16,8 @@ class DoublyLinkedList:
             self.head = node
             self.tail = node
         else:
-            self.tail.next = node
             node.prev = self.tail
+            self.tail.next = node
             self.tail = node
             
     def pop(self):
