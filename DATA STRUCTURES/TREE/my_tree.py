@@ -36,7 +36,7 @@ class Tree:
             else:
                 tur = self.addnodeAux(self.root, n, p)
                 if tur == None:
-                    raise Exception('Chutti Kr Shorya')
+                    raise Exception('Not found')
     def addnodeAux(self, r, n, p):
         if len(r.children) == 0:
             return 
@@ -44,7 +44,7 @@ class Tree:
         for c in r.children:
             if c.data == p:
                 c.children.append(self.Node(n))
-                return 'Hui Hui'
+                return 'H'
             chk = self.addnodeAux(c, n, p)
             if chk != None:
                 return chk
