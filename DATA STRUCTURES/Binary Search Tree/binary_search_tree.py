@@ -108,7 +108,7 @@ class Tree:
             # place the inorder successor in position of the node to be deleted
             temp = self.minValueNode(root.right)
 
-            root.key = temp.key
+            root.data = temp.data
 
             # Delete the inorder successor
             root.right = self.deleteNode_aux(root.right, temp.key)
