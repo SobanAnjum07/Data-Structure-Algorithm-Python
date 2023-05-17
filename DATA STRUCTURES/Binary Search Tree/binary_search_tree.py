@@ -77,20 +77,58 @@ class Tree:
         if self.right:
             self.right.traverse()
             
-    def delete_node(self, val):
-        if self.data == None:
-            return
-        if val < self.data:
-            self.delete_node(self.left)
-        elif val > self.data:
-            self.delete_node(self.right)
-        # No if the the value is in data the the data will be deleted
-        else: 
-            if self.data.left == None:
-                self.data = None
-            elif self.data.right == None:
-                self.data = None
-                
+            
+    # Find the inorder successor
+    def minValueNode(self, node):
+        current = node
+
+        # Find the leftmost leaf
+        while(current.left is not None):
+            current = current.left
+
+        return current 
+           
+        # Deleting a node
+        
+    def deleteNode(self, key):
+        
+        self.deleteNode_aux(self, self.root, key)
+        
+    def deleteNode_aux(self, root, key):
+
+        # Return if the tree is empty
+        if root is None:
+            return root
+
+        # Find the node to be deleted
+        if key < root.key:
+            root.left = self.deleteNode_aux(root.left, key)
+        elif(key > root.key):
+            root.right = self.deleteNode_aux(root.right, key)
+        else:
+            # If the node is with only one child or no child
+            if root.left is None:
+                temp = root.right
+                root = None
+                return temp
+
+            elif root.right is None:
+                temp = root.left
+                root = None
+                return temp
+
+            # If the node has two children,
+            # place the inorder successor in position of the node to be deleted
+            temp = self.minValueNode(root.right)
+
+            root.key = temp.key
+
+            # Delete the inorder successor
+            root.right = self.deleteNode_aux(root.right, temp.key)
+
+        return root
+
+                    
                 
     
     def height(self):
