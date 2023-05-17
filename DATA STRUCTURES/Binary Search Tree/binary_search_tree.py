@@ -101,9 +101,9 @@ class Tree:
             return root
 
         # Find the node to be deleted
-        if key < root.key:
+        if key < root.data:
             root.left = self.deleteNode_aux(root.left, key)
-        elif(key > root.key):
+        elif(key > root.data):
             root.right = self.deleteNode_aux(root.right, key)
         else:
             # If the node is with only one child or no child
