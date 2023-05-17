@@ -112,7 +112,7 @@ class Tree:
             root.data = temp.data
 
             # Delete the inorder successor
-            root.right = self.deleteNode_aux(root.right, temp.key)
+            root.right = self.deleteNode_aux(root.right, temp.data)
 
         return root
 
