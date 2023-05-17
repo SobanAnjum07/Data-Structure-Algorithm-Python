@@ -78,8 +78,9 @@ class Tree:
         # Deleting a node
         
     def deleteNode(self, key):
-        
-        self.deleteNode_aux(self, self.root, key)
+        temp = self.root
+        hehe = self.deleteNode_aux(self, temp, key)
+        self.root = hehe
         
     def deleteNode_aux(self, root, key):
 
@@ -96,7 +97,7 @@ class Tree:
             # If the node is with only one child or no child
             if root.left is None:
                 temp = root.right
-                root = None
+                root = None 
                 return temp
 
             elif root.right is None:
